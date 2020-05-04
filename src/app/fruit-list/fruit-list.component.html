@@ -1,0 +1,13 @@
+<h2>Fruits</h2>
+
+<div>
+    <input type="text" [(ngModel)]="newFruit"/>
+    <button (click)="addFruit()">Add</button>
+    <button (click) = "removeFruit()">remove first</button>
+</div>
+
+<ul>
+    <li *ngFor="let fruit of fruits" (click) = "removeByFruit(fruit)">
+        {{ fruit.name }}
+    </li>
+</ul>

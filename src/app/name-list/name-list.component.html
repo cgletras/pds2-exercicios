@@ -1,0 +1,44 @@
+
+<h3>Lista de Nomes</h3>
+<br>
+
+<ol>
+    <li *ngFor="let nome of nomes, let i=index">
+        <p>{{nome}}: Index é igual a: {{1}}, número de letras = {{nome.length}}</p>
+    </li>
+</ol>
+<br>
+
+
+<p *ngIf="nomes.length==7">A list tem tamanho 7</p>
+<p [hidden]="nomes.length==3">Nenhum nome</p>
+
+
+<input type="text" #box placeholder="digite um nome" (keyup)="buscar(box.value)">
+
+
+<br>
+<ul *nfFor="let nomeFiltro of nomesFiltro">
+    <li>{{nomeFiltro}}</li>
+</ul>
+
+<br>
+<input #parametroid placeholder = "digite um id"/>
+<button (click)= "retorno = buscarId(parametroid.value)"></button>
+<p *ngIf="retorno != undefined">{{retorno.id}} - {{retorno.nome}}</p>
+<br>
+
+<input #percentual placeholder = "digite o percentual"/>
+<button (click) = "aumentarSalario(percentual.value)">Aumentar salario</button>
+
+<p>{{verificaSalario(500)}}? 'Todo mundo ganha mais que 500':
+    'nem todo mundo ganha mais que 500'
+</p>
+
+<br>
+
+<input #criterio placeholder="digite um criterio de busca" (keyup)="resposta = buscarCampos(criterio.value)"/>
+
+<ul *ngFor="let r for resposta">
+    <li>{{r.id}} - {{r.salario}}</li>
+</ul>
